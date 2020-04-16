@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/welcome', 'HomeController@mulai');
 Route::post('/save', 'HomeController@saveQuestioner');
 Route::get('/question-answer/{questioner_id}/{question_id}', 'HomeController@questions');
 Route::post('/question-answer/{questioner_id}/{question_id}', 'HomeController@saveAnswer');

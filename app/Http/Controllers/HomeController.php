@@ -12,9 +12,11 @@ class HomeController extends Controller
 {
     public function index()
     {
+        return view('dashboard');
+    }
+    public function mulai(){
         return view('welcome');
     }
-
     public function saveQuestioner(Request $request)
     {
         $questioner = new Questioner;
@@ -51,13 +53,13 @@ class HomeController extends Controller
             $questioner->total_n = $questioner->total_n + 1;
         }
         if($questioner->total_y < 8){
-            $questioner->status = "RENDAH";
+            $questioner->status = "Low";
         }
         if($questioner->total_y >= 8 && $questioner->total_y <= 14){
-            $questioner->status = "SEDANG";
+            $questioner->status = "Moderate";
         }
         if($questioner->total_y > 14){
-            $questioner->status = "TINGGI";
+            $questioner->status = "High";
         }
         $questioner->save();
 
